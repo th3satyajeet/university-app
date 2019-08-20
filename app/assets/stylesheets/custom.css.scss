@@ -1,0 +1,55 @@
+@import "materialize";
+
+.nav-color {
+    background-color: #123C69;
+}
+
+.brand-weight {
+    font-weight: bold;
+}
+
+.bg-color {
+    background-color: #EEE2DC;
+}
+.root-heading {
+    color: #AC3B61;
+    font-weight: bold;
+}
+
+.name-input-color {
+    color: white;
+}
+
+.card-padding {
+    padding-top:5%;
+}
+
+.edit-profile {
+    padding-bottom: 10px;
+    padding-left: 50px;
+}
+
+.signup-font {
+    color: orange;
+}
+.footer-color {
+    background-color: #123C69;
+    padding-bottom: 0px;
+}
+
+body {
+    background-image: url("bg2.jpg");
+    background-size: cover;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+      

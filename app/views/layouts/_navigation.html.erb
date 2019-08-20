@@ -1,0 +1,74 @@
+<header>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><%= session_link %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Profile", student_path(current_user) %>
+        <% end %>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+      <ul id="dropdown2" class="dropdown-content">
+        <li><%= session_link %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Profile", student_path(current_user) %>
+        <% end %>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+      </ul>
+      <nav class="nav-extended nav-color">
+        <div class="container">
+          <div class="nav-wrapper">
+            <%= image_tag("logo2.png", :alt => "rss feed", :class =>"icon",style:"height:70px ; width: 80px;") %>
+            <%= link_to "Snap University", root_path, class: "brand-logo brand-weight"%>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <%# <li><a href="#">Log in</a></li> %>
+              <li><%= session_link %></li>
+              <% if !logged_in? %>
+                <li class="tab"> <%= link_to "Sign up!", new_student_path %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+              <%# <li class="tab"><a href="#">Courses</a></li> %>
+              <li class="tab"> <%= link_to "Courses", root_path %></li>
+              <% if logged_in? %>
+                <li class="tab"> <%= link_to "Students", students_path %></li>
+              <% end %>
+              <li><a class="dropdown-trigger tab" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+              <%# <li class="tab"><a href="#test4">Contact US</a></li> %>
+              <li class="tab"> <%= link_to "Contact us", contact_us_path %></li>
+            </ul>
+          </div>
+        </div> 
+      </nav>
+
+      <% flash.each do |key, message| %>
+        <div class="container">
+          <div class="row sign-up-form">
+            <div class="col s12 m12 l12">
+              <div class="card-panel red" id="fade-out-target">
+                <span class="white-text">
+                  <%= message %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+</header>
+
+<ul class="sidenav" id="mobile-demo">
+  <li class="tab"> <%= link_to "Courses", root_path %></li>
+  <% if logged_in? %>
+    <li class="tab"> <%= link_to "Students", students_path %></li>
+  <% end %>
+  <li><a class="dropdown-trigger tab" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+  <li class="tab"><a href="#test4">Contact US</a></li>
+  <li><%= session_link %></li>
+  <% if !logged_in? %>
+    <li class="tab"> <%= link_to "Sign up!", new_student_path %></li>
+  <% end %>
+</ul>

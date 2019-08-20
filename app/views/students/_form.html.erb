@@ -1,0 +1,43 @@
+<%= render 'shared/errors', obj: @student %>
+
+<div class="container">
+    <div class="row center-align card-padding">
+        <div class="col s12 m12 l12">
+            <div class="card-panel blue-grey darken-4">
+                <div class="signup-font center-align">
+                    <h2> <%= @student.new_record? ? "Sign up" : "Edit your Profile" %></h2>
+                </div>
+                <div class="row">
+                    <%= form_for(@student, html: {class: "col s12"}) do |f|%>
+                        <div class="row">
+                            <div class="input-field col s12" >
+                                <%= f.text_field :name, placeholder: "Enter your name", autofocus: true %>
+                                <%= f.label :name %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12" >
+                                <%= f.text_field :email, placeholder: "Enter your email" %>
+                                <%= f.label :email, class: "active" %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12" >
+                                <%= f.password_field :password, placeholder: "choose your password" %>
+                                <%= f.label :password, class: "active"  %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12" >
+                                <%= f.password_field :password_confirmation, placeholder: "confirm your password" %>
+                                <%= f.label :password_confirmation, class: "active"  %>
+                            </div>
+                        </div>
+
+                        <%= f.button(@student.new_record? ? '<i class="material-icons right">arrow_forward</i>Submit'.html_safe : '<i class="material-icons right">arrow_forward</i>Update'.html_safe, class: "btn orange waves-effect waves-light") %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
